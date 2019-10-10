@@ -1,6 +1,6 @@
 # meta-rock64
 
-OpenEmbedded/Yocto BSP layer for the Rock64 boards - <https://wiki.pine64.org/index.php/ROCK64_Main_Page/>.
+OpenEmbedded/Yocto BSP layer for the Rock64 boards - <https://wiki.pine64.org/index.php/ROCK64_Main_Page>.
 
 ## Quick links
 
