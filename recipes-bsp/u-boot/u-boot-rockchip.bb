@@ -10,11 +10,11 @@ COMPATIBLE_MACHINE = "(rock64)"
 
 HOMEPAGE = "http://www.denx.de/wiki/U-Boot/WebHome"                                                                                
 SECTION = "bootloaders"
-DEPENDS += "flex-native arm-trusted-firmware bc-native dtc-native bison-native"
+DEPENDS = "flex-native arm-trusted-firmware bc-native dtc-native bison-native"
 # DEPENDS += "rk-binary-native"
-DEPENDS_append = " bc-native dtc-native arm-trusted-firmware"
+# DEPENDS_append = " bc-native dtc-native arm-trusted-firmware"
 
-PE = "1"
+# PE = "1"
 
 SRC_URI = " \
     git://gitlab.denx.de/u-boot/custodians/u-boot-rockchip.git;protocol=https;branch=master \
