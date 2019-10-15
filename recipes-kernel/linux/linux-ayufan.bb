@@ -4,7 +4,7 @@
 SUMMARY = "Rock64 kernel"
 DESCRIPTION = "Rock64 machine kernel"
 
-# FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS_prepend := "${THISDIR}:"
 
 #LINUX_VERSION = "4.4.167"
 #SRC_URI = " \
@@ -18,7 +18,7 @@ SRC_URI = " \
     "
 SRCREV = "4.4.193-1234-rockchip-ayufan"
 
-# SRC_URI += "file://defconfig"
+SRC_URI += "file://defconfig"
 
 require recipes-kernel/linux/linux-yocto.inc
 
@@ -36,9 +36,9 @@ S = "${WORKDIR}/git"
 
 KCONFIG_MODE="--alldefconfig"
 
-#KERNEL_DEFCONFIG = "${WORKDIR}/defconfig"
+KERNEL_DEFCONFIG = "${WORKDIR}/defconfig"
 
 COMPATIBLE_MACHINE = "(rock64)"
 
 # FILES_${KERNEL_PACKAGE_NAME}-base += "${nonarch_base_libdir}/modules/${KERNEL_VERSION}/modules.builtin.modinfo"
-# deltask kernel_configme
+deltask kernel_configme
