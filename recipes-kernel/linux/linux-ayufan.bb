@@ -12,11 +12,11 @@ FILESEXTRAPATHS_prepend := "${THISDIR}:"
 #    "
 #SRCREV = "63f19620adb5ae098acc00f78a9c623fa4b070e8"
 
-LINUX_VERSION = "4.4.193"
+LINUX_VERSION = "4.4.190"
 SRC_URI = " \
-    git://github.com/ayufan-rock64/linux-kernel.git;protocol=https;branch=release-4.4.193 \
+    git://github.com/ayufan-rock64/linux-kernel.git;protocol=https;branch=release-4.4.190 \
     "
-SRCREV = "4.4.193-1234-rockchip-ayufan"
+SRCREV = "4.4.190-1233-rockchip-ayufan"
 
 SRC_URI += "file://defconfig"
 
@@ -40,5 +40,5 @@ KERNEL_DEFCONFIG = "${WORKDIR}/defconfig"
 
 COMPATIBLE_MACHINE = "(rock64)"
 
-# FILES_${KERNEL_PACKAGE_NAME}-base += "${nonarch_base_libdir}/modules/${KERNEL_VERSION}/modules.builtin.modinfo"
+FILES_${KERNEL_PACKAGE_NAME}-base += "${nonarch_base_libdir}/modules/${KERNEL_VERSION}/modules.builtin.modinfo"
 deltask kernel_configme
