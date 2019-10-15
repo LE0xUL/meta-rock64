@@ -6,17 +6,17 @@ DESCRIPTION = "Rock64 machine kernel"
 
 # FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-LINUX_VERSION = "4.4.167"
-SRC_URI = " \
-    git://github.com/ayufan-rock64/linux-kernel.git;protocol=https;branch=release-4.4.167 \
-    "
-SRCREV = "63f19620adb5ae098acc00f78a9c623fa4b070e8"
+#LINUX_VERSION = "4.4.167"
+#SRC_URI = " \
+#    git://github.com/ayufan-rock64/linux-kernel.git;protocol=https;branch=release-4.4.167 \
+#    "
+#SRCREV = "63f19620adb5ae098acc00f78a9c623fa4b070e8"
 
-# LINUX_VERSION = "4.4.193"
-# SRC_URI = " \
-#     git://github.com/ayufan-rock64/linux-kernel.git;protocol=https;branch=release-4.4.193 \
-#     "
-# SRCREV = "4.4.193-1234-rockchip-ayufan"
+LINUX_VERSION = "4.4.193"
+SRC_URI = " \
+    git://github.com/ayufan-rock64/linux-kernel.git;protocol=https;branch=release-4.4.193 \
+    "
+SRCREV = "4.4.193-1234-rockchip-ayufan"
 
 # SRC_URI += "file://defconfig"
 
