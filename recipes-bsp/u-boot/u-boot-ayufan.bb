@@ -1,4 +1,4 @@
-# Rock64 Board u-boot-rockchip
+# Rock64 Board u-boot-ayufan
 
 require recipes-bsp/u-boot/u-boot.inc
 
@@ -13,15 +13,12 @@ SECTION = "bootloaders"
 # DEPENDS = "flex-native arm-trusted-firmware bc-native dtc-native bison-native swig-native"
 # DEPENDS += "rk-binary-native"
 # DEPENDS_append = " bc-native dtc-native arm-trusted-firmware"
-DEPENDS = "bison-native rkbin"
+DEPENDS = "rkbin"
 
 # PE = "1"
 
-SRC_URI = " \
-    git://gitlab.denx.de/u-boot/custodians/u-boot-rockchip.git;protocol=https;branch=master \
-    "
-
-SRCREV = "u-boot-rockchip-20190920"
+SRC_URI = "git@github.com:ayufan-rock64/linux-u-boot.git"
+SRCREV = "2017.09-rockchip-ayufan-1065-g95f6152134"
 
 S = "${WORKDIR}/git"
 
