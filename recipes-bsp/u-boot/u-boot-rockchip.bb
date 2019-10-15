@@ -10,7 +10,7 @@ COMPATIBLE_MACHINE = "(rock64)"
 
 HOMEPAGE = "http://www.denx.de/wiki/U-Boot/WebHome"                                                                                
 SECTION = "bootloaders"
-DEPENDS = "flex-native arm-trusted-firmware bc-native dtc-native bison-native"
+DEPENDS = "flex-native arm-trusted-firmware bc-native dtc-native bison-native swig-native"
 # DEPENDS += "rk-binary-native"
 # DEPENDS_append = " bc-native dtc-native arm-trusted-firmware"
 
@@ -32,8 +32,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 # Generate rockchip style u-boot binary
 # UBOOT_BINARY = "uboot.img"
 IDBLOADER = "idbloader.img"
-TPL_BINARY ?= "u-boot-tpl.bin"
-SPL_BINARY ?= "u-boot-spl.bin"
 
 # EXTRA_OEMAKE += " u-boot.itb"
 # EXTRA_OEMAKE = 'CROSS_COMPILE="${TARGET_PREFIX}" ARCH=arm64'
@@ -43,7 +41,7 @@ UBOOT_MAKE_TARGET += " u-boot.itb"
 
 do_compile_append () {
     # cp ${B}/tpl/${TPL_BINARY} ${B}/${TPL_BINARY}
-    # cp ${B}/spl/${SPL_BINARY} ${B}/${SPL_BINARY}
+    cp ${B}/spl/${SPL_BINARY} ${B}/${SPL_BINARY}
     # cp ${B}/${TPL_BINARY} ${DEPLOYDIR}/${TPL_BINARY}
     cp ${B}/u-boot.itb ${DEPLOY_DIR_IMAGE}/u-boot.itb
 
