@@ -31,9 +31,9 @@ FILES_${PN}-wifi = "/lib/firmware/brcm/*"
 do_deploy () {
     install -d ${DEPLOYDIR}/rkbin/tools
     install -m 755 ${S}/tools/loaderimage ${DEPLOYDIR}/rkbin/tools
-    install -m 755 ${S}/rk33/rk3399_ddr_800MHz_v1.14.bin ${DEPLOYDIR}/rkbin
-    install -m 755 ${S}/rk33/rk3399_miniloader_v1.15.bin ${DEPLOYDIR}/rkbin
-    install -m 755 ${S}/img/rk3399/trust.img ${DEPLOYDIR}/rkbin
+    install -m 755 ${S}/rk33/rk3328_ddr_786MHz_v1.13.bin ${DEPLOYDIR}/rkbin
+    install -m 755 ${S}/rk33/rk3328_miniloader_v2.46.bin ${DEPLOYDIR}/rkbin
+    install -m 755 ${S}/img/rk3328/trust.img ${DEPLOYDIR}/rkbin
 }
 
 addtask deploy before do_build after do_compile
