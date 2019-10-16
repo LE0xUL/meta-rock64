@@ -13,11 +13,11 @@ SECTION = "bootloaders"
 # DEPENDS = "flex-native arm-trusted-firmware bc-native dtc-native bison-native swig-native"
 # DEPENDS += "rk-binary-native"
 # DEPENDS_append = " bc-native dtc-native arm-trusted-firmware"
-DEPENDS = "rkbin"
+DEPENDS_append = " dtc-native rkbin"
 
 # PE = "1"
 
-SRC_URI = "git@github.com:ayufan-rock64/linux-u-boot.git"
+SRC_URI = "git://github.com/ayufan-rock64/linux-u-boot.git;protocol=https;branch=rockchip-master"
 SRCREV = "2017.09-rockchip-ayufan-1065-g95f6152134"
 
 S = "${WORKDIR}/git"
