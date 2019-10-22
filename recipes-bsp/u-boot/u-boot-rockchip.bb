@@ -13,7 +13,7 @@ SECTION = "bootloaders"
 # DEPENDS = "flex-native arm-trusted-firmware bc-native dtc-native bison-native swig-native"
 # DEPENDS += "rk-binary-native"
 # DEPENDS_append = " bc-native dtc-native arm-trusted-firmware"
-DEPENDS = "bison-native rkbin"
+DEPENDS_append = " bison-native rkbin"
 
 # PE = "1"
 
