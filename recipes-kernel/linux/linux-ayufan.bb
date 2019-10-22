@@ -15,6 +15,7 @@ SRC_URI = "git://github.com/ayufan-rock64/linux-kernel.git;protocol=https;branch
 SRCREV = "4.4.190-1233-rockchip-ayufan"
 
 SRC_URI += "file://defconfig"
+SRC_URI += "file://0001-Add-aistick-dts-to-4.4.190.patch"
 
 require recipes-kernel/linux/linux-yocto.inc
 
