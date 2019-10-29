@@ -16,9 +16,14 @@ do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 do_install () {
-    install -d ${D}/lib/firmware/brcm/
-    cp -fr ${S}/firmware/wifi/fw_bcm4356a2_ag.bin ${D}/lib/firmware/brcm/brcmfmac4356-sdio.bin
-    cp -fr ${S}/firmware/wifi/nvram_ap6356.txt ${D}/lib/firmware/brcm/brcmfmac4356-sdio.txt
+#    install -d ${D}/lib/firmware/brcm/
+#    cp -fr ${S}/firmware/wifi/fw_bcm4356a2_ag.bin ${D}/lib/firmware/brcm/brcmfmac4356-sdio.bin
+#    cp -fr ${S}/firmware/wifi/nvram_ap6356.txt ${D}/lib/firmware/brcm/brcmfmac4356-sdio.txt
+#    cp -fr ${S}/firmware/wifi/nvram_ap6212a.txt ${D}/lib/firmware/brcm/nvram_ap6212a.txt
+#    cp -fr ${S}/firmware/wifi/fw_bcm43438* ${D}/lib/firmware/brcm/
+    install -d ${D}/vendor/etc/firmware/
+    cp -fr ${S}/firmware/wifi/nvram_ap6212a.txt ${D}/vendor/etc/firmware/
+    cp -fr ${S}/firmware/wifi/fw_bcm43438a1.bin ${D}/vendor/etc/firmware/
 }
 
 PACKAGES =+ " \
@@ -26,7 +31,8 @@ PACKAGES =+ " \
     ${PN}-bt \
 "
 
-FILES_${PN}-wifi = "/lib/firmware/brcm/*"
+# FILES_${PN}-wifi = "/lib/firmware/brcm/*"
+FILES_${PN}-wifi = "/vendor/etc/firmware/*"
 
 do_deploy () {
     install -d ${DEPLOYDIR}/rkbin/tools
