@@ -1,0 +1,74 @@
+From 8b4e73cae5dc99e6d1693f5487e6b4b11b702e22 Mon Sep 17 00:00:00 2001
+From: Leonardo Urrego <trecetp@gmail.com>
+Date: Wed, 30 Oct 2019 16:55:13 -0500
+Subject: [PATCH 3/3] Add AP6212A support
+
+---
+ drivers/net/wireless/rockchip_wlan/rkwifi/rk_wifi_config.c | 5 +++++
+ .../net/wireless/rockchip_wlan/wifi_sys/rkwifi_sys_iface.c | 7 ++++++-
+ include/linux/rfkill-wlan.h                                | 1 +
+ net/rfkill/rfkill-wlan.c                                   | 2 ++
+ 4 files changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/wireless/rockchip_wlan/rkwifi/rk_wifi_config.c b/drivers/net/wireless/rockchip_wlan/rkwifi/rk_wifi_config.c
+index fa07a94c27c1..392513b4f043 100644
+--- a/drivers/net/wireless/rockchip_wlan/rkwifi/rk_wifi_config.c
++++ b/drivers/net/wireless/rockchip_wlan/rkwifi/rk_wifi_config.c
+@@ -69,6 +69,11 @@ if (chip == WIFI_AP6212) {
+         sprintf(nvram, "%s%s", ANDROID_FW_PATH, "nvram_ap6212.txt");
+ }
+ 
++if (chip == WIFI_AP6212A) {
++    sprintf(fw, "%s%s", ANDROID_FW_PATH, "fw_bcm43438a1.bin");
++        sprintf(nvram, "%s%s", ANDROID_FW_PATH, "nvram_ap6212a.txt");
++}
++
+ if (chip == WIFI_AP6234) {
+     sprintf(fw, "%s%s", ANDROID_FW_PATH, "fw_bcm43341b0_ag.bin");
+ 	sprintf(nvram, "%s%s", ANDROID_FW_PATH, "nvram_AP6234.txt");
+diff --git a/drivers/net/wireless/rockchip_wlan/wifi_sys/rkwifi_sys_iface.c b/drivers/net/wireless/rockchip_wlan/wifi_sys/rkwifi_sys_iface.c
+index 07862a50c6b5..075a1d731ec8 100644
+--- a/drivers/net/wireless/rockchip_wlan/wifi_sys/rkwifi_sys_iface.c
++++ b/drivers/net/wireless/rockchip_wlan/wifi_sys/rkwifi_sys_iface.c
+@@ -42,7 +42,12 @@ static ssize_t wifi_chip_read(struct class *cls, struct class_attribute *attr, c
+             count = sprintf(_buf, "%s", "AP6212");
+             printk("Current WiFi chip is AP6212.\n");
+         }
+-	
++
++        if(type == WIFI_AP6212A) {
++            count = sprintf(_buf, "%s", "AP6212A");
++            printk("Current WiFi chip is AP6212A.\n");
++        }	
++
+ 	if(type == WIFI_AP6234) {
+ 	    count = sprintf(_buf, "%s", "AP6234");
+ 	    printk("Current WiFi chip is AP6234.\n");
+diff --git a/include/linux/rfkill-wlan.h b/include/linux/rfkill-wlan.h
+index 2cead6d09a15..693ad1025a8c 100644
+--- a/include/linux/rfkill-wlan.h
++++ b/include/linux/rfkill-wlan.h
+@@ -52,6 +52,7 @@ enum {
+     WIFI_AP6181,
+     WIFI_AP6210,
+     WIFI_AP6212,
++    WIFI_AP6212A,
+     WIFI_AP6234,
+     WIFI_AP6255,
+     WIFI_AP6330,
+diff --git a/net/rfkill/rfkill-wlan.c b/net/rfkill/rfkill-wlan.c
+index fcb220017dda..067fb6978b43 100644
+--- a/net/rfkill/rfkill-wlan.c
++++ b/net/rfkill/rfkill-wlan.c
+@@ -108,6 +108,8 @@ int get_wifi_chip_type(void)
+         type = WIFI_AP6210;
+     } else if (strcmp(wifi_chip_type_string, "ap6212") == 0) {
+         type = WIFI_AP6212;
++    } else if (strcmp(wifi_chip_type_string, "ap6212a") == 0) {
++        type = WIFI_AP6212A;
+     } else if (strcmp(wifi_chip_type_string, "rk901") == 0) {
+         type = WIFI_RK901;    
+     } else if (strcmp(wifi_chip_type_string, "rk903") == 0) {
+-- 
+2.20.1
+
