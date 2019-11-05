@@ -14,8 +14,8 @@ LINUX_VERSION = "4.4.190"
 SRC_URI = "git://github.com/ayufan-rock64/linux-kernel.git;protocol=https;branch=release-4.4.190"
 SRCREV = "4.4.190-1233-rockchip-ayufan"
 
-SRC_URI += "file://defconfig"
 SRC_URI += "file://0001-Add-aistick-dts-to-4.4.190.patch"
+# SRC_URI += "file://defconfig"
 
 require recipes-kernel/linux/linux-yocto.inc
 
@@ -33,7 +33,7 @@ S = "${WORKDIR}/git"
 
 KCONFIG_MODE="--alldefconfig"
 
-KERNEL_DEFCONFIG = "${WORKDIR}/defconfig"
+# KERNEL_DEFCONFIG = "${WORKDIR}/defconfig"
 
 COMPATIBLE_MACHINE = "(rock64)"
 
