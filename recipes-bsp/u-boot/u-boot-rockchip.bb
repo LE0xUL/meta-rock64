@@ -1,5 +1,6 @@
 # Rock64 Board u-boot-rockchip
 
+require recipes-bsp/u-boot/u-boot-common.inc
 require recipes-bsp/u-boot/u-boot.inc
 
 DESCRIPTION = "u-boot which includes support for the Rock64 Board."
@@ -21,7 +22,7 @@ SRC_URI = " \
     git://gitlab.denx.de/u-boot/custodians/u-boot-rockchip.git;protocol=https;branch=master \
     "
 
-SRCREV = "u-boot-rockchip-20190920"
+SRCREV = "u-boot-rockchip-20201113"
 
 S = "${WORKDIR}/git"
 
